@@ -14,15 +14,20 @@
     <h1>Human Database 1.0</h1>
   </div>
   <div>
-    <a href="/humans/aggregate">Aggregated Data</a>
+    <a href="/">Main page</a>
   </div>
   <div>
-    <form action="/humans" method="post">
-      <label for="location">Location:</label>
-      <input type="text" id="location" required>
-      <button type="submit">Search</button>
-    </form>
+    <h2>Aggregated data</h2>
   </div>
+  <div>
+    <ul>
+      <li th:text="|The average age is ${age}|"></li>
+      <li th:text="|${perWomen} women and ${perMen} men in the database|"></li>
+      <li th:text="|The population is the highest in ${location}|"></li>
+    </ul>
+  </div>
+
 </div>
+
 </body>
 </html>

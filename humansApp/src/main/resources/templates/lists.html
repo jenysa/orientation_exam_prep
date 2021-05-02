@@ -14,14 +14,16 @@
     <h1>Human Database 1.0</h1>
   </div>
   <div>
-    <a href="/humans/aggregate">Aggregated Data</a>
+    <a href="/">Main Page</a>
   </div>
   <div>
-    <form action="/humans" method="post">
-      <label for="location">Location:</label>
-      <input type="text" id="location" required>
-      <button type="submit">Search</button>
-    </form>
+    <h2 th:text="|Humans from ${location}|"></h2>
+  </div>
+  <div>
+    <ul th:object="${human}">
+      <li th:text="|*{firstName} *{lastName}|"></li>
+
+    </ul>
   </div>
 </div>
 </body>
