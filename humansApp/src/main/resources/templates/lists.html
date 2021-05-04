@@ -17,12 +17,11 @@
     <a href="/">Main Page</a>
   </div>
   <div>
-    <h2 th:text="|Humans from ${location}|"></h2>
+    <h2> Humans from: <span th:text="${location}"></span></h2>
   </div>
-  <div>
-    <ul th:object="${human}">
-      <li th:text="|*{firstName} *{lastName}|"></li>
-
+  <div th:unless="${humans.isEmpty()}">
+    <ul th:each="human:${humans}">
+      <li th:text="|${human.getFirstName()} ${human.getLastName()}|"></li>
     </ul>
   </div>
 </div>

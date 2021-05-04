@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link th:href="@{/styles.css}" rel="stylesheet" type="text/css" media="all"/>
+  <meta charset="UTF-8">
+  <title>Rate My Mentor</title>
+</head>
+<body>
+<div>
+  <div>
+    <h1>Welcome to RateMyMentor!</h1>
+  </div>
+  <div>
+    <p>Give feedback for:</p>
+    <ul th:each="mentor:${mentors}">
+      <a href="/mentor/{id}" th:text="${mentor.getName}"></a>
+    </ul>
+  </div>
+  <div>
+    <h3>Can't see your mentors on the list? Add them below!</h3>
+    <form action="#" th:action="@{/mentor}" th:object="${mentorNew}" method="post" id="mentorNew">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" th:field="*{name}">
+
+      <label for="class">Class</label>
+
+      <select class="btn dropdown-toggle" data-toggle="dropdown" name="class" id="class" th:field="*{className}">
+        <option class="dropdown-item" th:value="Tiptop" name="Tiptop" th:field="*{class}"></option>
+        <option class="dropdown-item" th:value="Roboto" name="Roboto" th:field="*{class}"></option>
+        <option class="dropdown-item" th:value="Really" name="Really" th:field="*{class}"></option>
+        <option class="dropdown-item" th:value="Seadog" name="Seadog" th:field="*{class}"></option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
