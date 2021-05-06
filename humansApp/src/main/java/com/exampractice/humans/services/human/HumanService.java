@@ -12,4 +12,14 @@ public interface HumanService {
     boolean validateData(HumanDTO human);
 
     void addHuman(HumanDTO human);
+
+    double getAvgAge();
+
+    int getPercentageMale();
+
+    int getPercentageFemale();
+
+    String mostPopLocation();
+
+    List<Human> getAllHumans();
 }

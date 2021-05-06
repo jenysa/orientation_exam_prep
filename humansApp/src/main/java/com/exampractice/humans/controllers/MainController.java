@@ -35,8 +35,16 @@ public class MainController {
     }
 
     @GetMapping("/humans/aggregate")
-    public String getAggregateData() {
-        return null;
+    public String getAggregateData(Model model) {
+        if (humanService.getAllHumans().isEmpty()) {
+            return "redirect:/";
+        } else {
+            model.addAttribute("age", humanService.getAvgAge());
+            model.addAttribute("perWomen", humanService.getPercentageFemale());
+            model.addAttribute("perMen", humanService.getPercentageMale());
+            model.addAttribute("topLocation", humanService.mostPopLocation());
+            return "aggregatedData";
+        }
     }
 }
 
